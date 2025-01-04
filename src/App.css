@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  background: linear-gradient(
+    135deg,
+    #1a0f2e 0%,    /* Deep purple */
+    #2d1b4e 25%,   /* Rich purple */
+    #1f2937 50%,   /* Slate gray */
+    #312e81 75%,   /* Indigo */
+    #1e1b4b 100%   /* Dark indigo */
+  );
+  position: relative;
+}
+
+/* Add a subtle animated overlay */
+.App::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(99, 102, 241, 0.1) 0%,
+    rgba(15, 23, 42, 0) 70%
+  );
+  pointer-events: none;
+}
+
+/* Optional: Add a subtle noise texture */
+.App::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  pointer-events: none;
+}
